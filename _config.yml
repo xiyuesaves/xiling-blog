@@ -1,0 +1,16 @@
+title: xiling-theme
+
+author: 曦月
+avatar: img/avatar.png #头像路径
+introduction: 欢迎啦~ #简介
+
+menus:
+  主页: /
+  关于: /about
+
+links:
+  github: https://github.com/xiyuesaves
+  twitter: https://twitter.com
+  mail: xiyuesaves@gmail.com
+
+backgroundImage: img/bg.jpg

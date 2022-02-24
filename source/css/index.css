@@ -1,0 +1,270 @@
+.center-block {
+    flex: auto;
+    height: auto;
+    min-height: 100%;
+}
+
+.center-block .loading-bar {
+    transition: width 3s;
+    margin: 0 auto;
+    height: 4px;
+    width: 0%;
+    background-color: #7F92FF;
+}
+
+.center-block .title-block {
+    box-sizing: border-box;
+    margin-top: 30px;
+    padding: 20px;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+}
+
+.center-block .title-block .big-title {
+    font-weight: 900;
+    font-size: 32px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+    letter-spacing: 4px;
+    margin-bottom: 4px;
+    text-shadow: 0 0 4px rgb(0 0 0 / 60%);
+}
+
+.center-block .title-block .sm-title {
+    font-size: 13px;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    margin-top: 0px;
+    text-shadow: 0 0 4px rgb(0 0 0 / 60%);
+}
+
+.center-block .post-list {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-top: 60px;
+    padding: 0 30px;
+}
+
+/*  文章 */
+.center-block .post-list .post {
+    display: block;
+    transition: 300ms;
+    height: 220px;
+    width: 100%;
+    max-width: 810px;
+    margin: 0 auto 80px;
+    background-color: black;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgb(0 0 0 / 30%);
+}
+
+.center-block .post-list .post .info {
+    width: 100%;
+    height: 100%;
+    transition: all 500ms;
+    transform: translateY(75px);
+    color: #ffffff;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.center-block .post-list .post .info::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    transition: background-color 500ms;
+    background-color: rgba(0, 0, 0, 0.15);
+    top: -50%;
+    z-index: -1;
+    left: 0;
+    pointer-events: none;
+}
+
+.center-block .post-list .post .info .title {
+    text-align: center;
+    font-size: 24px;
+    margin: 0 160px;
+}
+
+.center-block .post-list .post .info .introduction {
+    color: rgba(255, 255, 255, 0.7);
+    transition-delay: 50ms;
+    transition-duration: 250ms;
+    transform: translateY(100%);
+    margin: 40px auto 0;
+    font-size: 13px;
+    text-align: center;
+    width: 350px;
+    box-sizing: border-box;
+    height: 38px;
+    opacity: 0;
+    font-size: 12px;
+}
+
+.center-block .post-list .post .info .meta {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    transition-duration: 600ms;
+    opacity: 0;
+    width: 525px;
+    height: 40px;
+    border-top: solid 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(100%);
+    box-sizing: border-box;
+    padding: 0 20px 0 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+}
+
+.center-block .post-list .post .info .meta .iconfont {
+    width: 33.333%;
+    max-width: 33.333%;
+    opacity: 0.7;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-block .post-list .post .info .meta p {
+    font-size: 12px;
+    font-style: normal;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.center-block .post-list .post .fliter-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.center-block .post-list .post .fliter-img::before {
+    transition: 600ms;
+    content: "";
+    position: absolute;
+    background-image: inherit;
+    background-size: cover;
+    z-index: 8;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    height: 110%;
+    width: 110%;
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.center-block .post-list .post .fliter-img::after {
+    transition: all 700ms;
+    content: "";
+    display: block;
+    width: 140%;
+    height: 140%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 100;
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.center-block .post-list .post .rotating-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 380px;
+    height: 380px;
+    z-index: 100;
+    overflow: hidden;
+    transition: transform 600ms, opacity 300ms;
+    opacity: 0;
+    transform: translateX(-380px);
+    /*transform: translateX(-270px);*/
+}
+
+.center-block .post-list .post .rotating-block .reverse-rotation-block {
+    width: 600px;
+    height: 600px;
+    transform-origin: top left;
+    transform: rotateZ(45deg);
+    overflow: hidden;
+}
+
+.center-block .post-list .post .rotating-block .reverse-rotation-block .image-block {
+    transform-origin: top left;
+    transform: rotateZ(-45deg);
+}
+
+.center-block .post-list .post .rotating-block .reverse-rotation-block img {
+    margin-top: 110px;
+    height: auto;
+    width: 600px;
+    transition-delay: 500ms;
+    transition-duration: 0ms;
+    transform: translateX(-110px);
+}
+
+.center-block .post-list .post:hover .fliter-img::after {
+    width: 110%;
+    height: 110%;
+}
+
+.center-block .post-list .post:hover .info::before {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.center-block .post-list .post:hover .info {
+    transform: translateY(0);
+}
+
+.center-block .post-list .post:hover .info .introduction {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.center-block .post-list .post:hover .info .meta {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.center-block .post-list .post:hover .rotating-block {
+    transition-delay: 50ms;
+    opacity: 1;
+    transform: translateX(-54px);
+}
+
+.center-block .post-list .post:hover .rotating-block .reverse-rotation-block img {
+    transition-delay: 200ms;
+    transition-duration: 950ms;
+    transform: translateX(0px);
+}
+
+.right-aside {
+    flex: initial;
+    width: 240px;
+    height: auto;
+    min-height: calc(100vh - 50px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
