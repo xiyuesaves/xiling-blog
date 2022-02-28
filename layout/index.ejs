@@ -20,76 +20,46 @@
                 <i class="icons i-see"><p class="of_ellipsis">----</p></i>
             </div>
         </div>
-        <div class="fliter-img" style="background-image: url(img/bgi_2.jpg);"></div>
+        <div class="fliter-img" style="background-image: url(/img/bgi_2.jpg);"></div>
         <div class="rotating-block">
             <div class="reverse-rotation-block">
                 <div class="image-block">
-                    <img src="img/bgi_2.jpg">
+                    <img src="/img/bgi_2.jpg">
                 </div>
             </div>
         </div>
     </a>
+
+<%
+    function getTime(time){
+        let date = new Date(time);
+        return date.toLocaleString("zh-CN",{hour12: false, year:'numeric', month:'long', day:'numeric', hour:'2-digit',minute:'2-digit',second:'2-digit'})
+    }
+    page.posts.forEach(post => {
+        console.log(post.picture)
+%>
     <a class="post" href="">
         <div class="info">
-            <p class="title">测试模组</p>
-            <p class="introduction of-ellipsis_2">
-                内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息
-            </p>
+            <p class="title"><%- post.title %></p>
+            <span class="introduction of-ellipsis-2">
+                <%- post.excerpt %>
+            </span>
             <div class="meta">
-                <i class="icons i-date"><p class="of_ellipsis">2020年8月12日14:06:22</p></i>
-                <i class="icons i-msg"><p class="of_ellipsis">----</p></i>
-                <i class="icons i-see"><p class="of_ellipsis">----</p></i>
+                <i class="icons i-date"><p class="of-ellipsis"><%- getTime(post.date) %></p></i>
+                <i class="icons i-msg"><p class="of-ellipsis">----</p></i>
+                <i class="icons i-see"><p class="of-ellipsis">----</p></i>
             </div>
         </div>
-        <div class="fliter-img" style="background-image: url(img/bgi_2.jpg);"></div>
+        <div class="fliter-img" style="background-image: url(<%- post.picture %>);"></div>
         <div class="rotating-block">
             <div class="reverse-rotation-block">
                 <div class="image-block">
-                    <img src="img/bgi_2.jpg">
+                    <img src="<%- post.picture %>">
                 </div>
             </div>
         </div>
     </a>
-    <a class="post" href="">
-        <div class="info">
-            <p class="title">测试模组</p>
-            <p class="introduction of-ellipsis_2">
-                内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息
-            </p>
-            <div class="meta">
-                <i class="icons i-date"><p class="of_ellipsis">2020年8月12日14:06:22</p></i>
-                <i class="icons i-msg"><p class="of_ellipsis">----</p></i>
-                <i class="icons i-see"><p class="of_ellipsis">----</p></i>
-            </div>
-        </div>
-        <div class="fliter-img" style="background-image: url(img/bgi_2.jpg);"></div>
-        <div class="rotating-block">
-            <div class="reverse-rotation-block">
-                <div class="image-block">
-                    <img src="img/bgi_2.jpg">
-                </div>
-            </div>
-        </div>
-    </a>
-    <a class="post" href="">
-        <div class="info">
-            <p class="title">测试模组</p>
-            <p class="introduction of-ellipsis_2">
-                内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息
-            </p>
-            <div class="meta">
-                <i class="icons i-date"><p class="of_ellipsis">2020年8月12日14:06:22</p></i>
-                <i class="icons i-msg"><p class="of_ellipsis">----</p></i>
-                <i class="icons i-see"><p class="of_ellipsis">----</p></i>
-            </div>
-        </div>
-        <div class="fliter-img" style="background-image: url(img/bgi_2.jpg);"></div>
-        <div class="rotating-block">
-            <div class="reverse-rotation-block">
-                <div class="image-block">
-                    <img src="img/bgi_2.jpg">
-                </div>
-            </div>
-        </div>
-    </a>
+<%
+    })
+%>
 </div>
