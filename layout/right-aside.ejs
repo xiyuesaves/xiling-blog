@@ -1,5 +1,27 @@
 <!-- 右侧栏 -->
 <%- css('css/right-aside.css') %>
+<%
+	let tagArr = [];
+	// 标签云数据源
+	site.posts.forEach(data => {
+		data.tags.forEach(tag => {
+			let index = tagArr.findIndex((el, index, arr) => {
+				if (el[0] === tag.name) {
+					return true;
+				}
+				return false;
+			})
+			if (index === -1) {
+				tagArr.push([tag.name,1,1,tag.permalink]);
+			} else {
+				++tagArr[index][1];
+				++tagArr[index][2];
+			}
+		})
+	})
+	// 排序
+	tagArr.sort((d1,d2) => d2[1] - d1[1]);
+%>
 <div class="right-aside">
 	<!-- 切换栏 -->
     <div class="switch-table">
@@ -183,35 +205,31 @@
     <!-- 标签云 -->
     <div class="tag-cloud">
     	<p class="title" title="找找有没有你感兴趣的?">标签云</p>
-    	<canvas id="tag-canvas"></canvas>
-    	<div id="cloud-box"></div>
+    	<div id="cloud-box">
+    		<a href="">
+    			<p>标签本体</p>
+    			<div class="fixed-tag">
+    				这里有3篇文章
+    			</div>
+    		</a>
+<%
+	tagArr.forEach(el => {
+%>
+			<a href="<%- el[3] %>">
+    			<p><%- el[0] %></p>
+    			<div class="fixed-tag">
+    				这里有<%- el[2] %>篇文章
+    			</div>
+    		</a>
+<%
+	})
+%>
+    	</div>
     </div>
 </div>
 <%- js('js/chineseColor.js') %>
 <%- js('js/wordcloud2.js') %>
 <script type="text/javascript">
-<%
-	let tagArr = [];
-	// 标签云数据源
-	site.posts.forEach(data => {
-		data.tags.forEach(tag => {
-			let index = tagArr.findIndex((el, index, arr) => {
-				if (el[0] === tag.name) {
-					return true;
-				}
-				return false;
-			})
-			if (index === -1) {
-				tagArr.push([tag.name,1,1]);
-			} else {
-				++tagArr[index][1];
-				++tagArr[index][2];
-			}
-		})
-	})
-	// 排序
-	tagArr.sort((d1,d2) => d2[1] - d1[1]);
-%>
 	let ranNum = Math.floor(Math.random()*chineseColor.length),
 		getColor = function () {
 			++ranNum;
@@ -223,37 +241,10 @@
 	let cloudEl = document.querySelector("#cloud-box");
 		// cloudEl.width = 220 * 2;
 		// cloudEl.height = 180 * 2;
-	// let cloudData = JSON.parse(decodeURIComponent("<%= encodeURIComponent(JSON.stringify(tagArr)) %>")),
-	let cloudData =	[
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-		["我是512",512],
-		["我是315",315],
-		["我是214",214],
-		["我是128",128],
-	],
+
+	// dom词云模式
+	if (false) {
+		let cloudData = JSON.parse(decodeURIComponent("<%= encodeURIComponent(JSON.stringify(tagArr)) %>")),
         weight = (cloudEl.offsetWidth + cloudEl.offsetHeight) / 8 / cloudData[0][1], // 以调用次数最多的词为基准缩放比例
 		cloudOption = {
 			list: cloudData,
@@ -268,7 +259,11 @@
             	console.log(item,dimension,event)
             }
 		}
-		console.log(cloudOption)
-	WordCloud(cloudEl, cloudOption );
+		WordCloud(cloudEl, cloudOption );
+	} else {
+		// 列表标签模式
+
+	}
+	
 </script>
 <%- js('js/right-aside.js') %>
