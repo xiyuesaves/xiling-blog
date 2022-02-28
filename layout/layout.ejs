@@ -5,10 +5,9 @@
 	<title><%- config.title %></title>
 	<!-- 主要样式 -->
 	<%- css('css/main.css') %>
-	<%- css('css/iconfont.css') %>
-
-	<!-- 脚本 -->
-	<%- js('js/main.js')%>
+	<!-- 图标 -->
+	<!-- <%- css('css/iconfont.css') %> -->
+	<%- css('//at.alicdn.com/t/font_3205213_jmze5ar99d.css') %>
 </head>
 <body>
 	<div id="main" style="background-image: url(<%- theme.backgroundImage %>);">
@@ -24,10 +23,21 @@
 
 		<!-- 正文 -->
 		<div id="main-block">
-			<%- body %>
+			<!-- 居中内容块 -->
+			<div class="center-block">
+			    <!-- 加载条 -->
+			    <div class="loading-bar"></div>
+			    <!-- 主内容 -->
+				<%- body %>
+			</div>
+			<div #="right-aside">
+				<%- include('right-aside.ejs') %>
+			</div>
 		</div>
-
-		
 	</div>
 </body>
+<!-- 脚本 -->
+
+<%- js('js/main.js')%>
+<%- js('js/SmoothScroll.min.js')%>
 </html>
