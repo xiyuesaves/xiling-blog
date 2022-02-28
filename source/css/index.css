@@ -12,36 +12,6 @@
     background-color: #7F92FF;
 }
 
-.center-block .title-block {
-    box-sizing: border-box;
-    margin-top: 30px;
-    padding: 20px;
-    color: #ffffff;
-    width: 100%;
-    text-align: center;
-}
-
-.center-block .title-block .big-title {
-    font-weight: 900;
-    font-size: 32px;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    line-height: 45px;
-    letter-spacing: 4px;
-    margin-bottom: 4px;
-    text-shadow: 0 0 4px rgb(0 0 0 / 60%);
-}
-
-.center-block .title-block .sm-title {
-    font-size: 13px;
-    width: 100%;
-    margin-bottom: 0;
-    text-align: center;
-    margin-top: 0px;
-    text-shadow: 0 0 4px rgb(0 0 0 / 60%);
-}
-
 .center-block .post-list {
     width: 100%;
     height: auto;
@@ -57,8 +27,8 @@
     height: 220px;
     width: 100%;
     max-width: 810px;
-    margin: 0 auto 80px;
-    background-color: black;
+    margin: 0 auto 40px;
+    /*background-color: black;*/
     position: relative;
     border-radius: 8px;
     overflow: hidden;
@@ -129,7 +99,7 @@
     font-size: 12px;
 }
 
-.center-block .post-list .post .info .meta .iconfont {
+.center-block .post-list .post .info .meta .icons {
     width: 33.333%;
     max-width: 33.333%;
     opacity: 0.7;
@@ -138,12 +108,15 @@
     justify-content: center;
     align-items: center;
 }
-
+.center-block .post-list .post .info .meta .icons::before{
+    font-size: 16px;
+    margin-right: 4px;
+}
 .center-block .post-list .post .info .meta p {
     font-size: 12px;
     font-style: normal;
     margin: 0;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .center-block .post-list .post .fliter-img {
@@ -221,8 +194,8 @@
     margin-top: 110px;
     height: auto;
     width: 600px;
-    transition-delay: 500ms;
-    transition-duration: 0ms;
+    /*transition-delay: 500ms;*/
+    transition-duration: 300ms;
     transform: translateX(-110px);
 }
 
@@ -259,12 +232,4 @@
     transition-delay: 200ms;
     transition-duration: 950ms;
     transform: translateX(0px);
-}
-
-.right-aside {
-    flex: initial;
-    width: 240px;
-    height: auto;
-    min-height: calc(100vh - 50px);
-    background-color: rgba(255, 255, 255, 0.9);
 }
