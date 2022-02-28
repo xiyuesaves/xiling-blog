@@ -1,48 +1,97 @@
+<!-- 样式文件 -->
+<%- css('css/left-aside.css') %>
 <div class="left-aside">
-    <%- css('css/left-aside.css') %>
+	<div class="avatar">
+		<img src="<%- theme.avatar %>">
+	</div>
+	<!-- 作者和欢迎词 -->
+	<p class="name"><%- config.author%></p>
+	<p class="introduction"><%- theme.introduction %></p>
 
-    <div class="avatar">
-        <img src="<%- theme.avatar %>">
-    </div>
+<%
+	function newPage(url) {
+		if (/^http(s?):\/\//.test(url)) {
+			return 'target="_blank"';
+		}
+	}
+%>
 
-    <p class="name"><%- config.author%></p>
-    <p class="introduction"><%- theme.introduction %></p>
+<%
+	for(let key in theme.nav){
+%>
+	<div class="nav-list">
+		<p class="title"><%- key %></p>
+<%
+		for(let item in theme.nav[key]){
+			if (!theme.nav[key][item].list) {
+%>
+		<a class="link" title="<%- theme.nav[key][item].title %>" <%- newPage(theme.nav[key][item].url) %> href="<%- theme.nav[key][item].url %>">
+			<i class="icon icons <%- theme.nav[key][item].icon %>"><%- item %></i>
+		</a>
+<%
+			} else {
+%>
+		<div class="fold-nav">
+			<div class="link switch">
+				<i class="icon icons <%- theme.nav[key][item].icon %>"><%- item %></i>
+				<i class="flod-icon icon icons i-flod"></i>
+			</div>
+<%
+				for(let fold in theme.nav[key][item].list){
+%>
+			<a href="<%- theme.nav[key][item].list[fold].url %>" <%- newPage(theme.nav[key][item].list[fold].url) %> class="link">
+				<i class="icon icons <%- theme.nav[key][item].list[fold].icon %>"><%- fold %></i>
+			</a>
+<%
+				}
+%>
+		</div>
+<%
+			}
+		}
+%>
+		</div>
+<%
+	}
+%>
 
-    <div class="nav-list">
-        <p class="title">导航</p>
-        <a class="link" href="">
-            <i class="icon iconfont icon-yemian-copy-copy">首页</i>
-        </a>
-        <a title="提问之前先看看?" class="link" target="view_window" href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md">
-            <i class="icon iconfont icon-tiwen">提问的智慧</i>
-        </a>
-        <a class="link" href="">
-            <i class="icon iconfont icon-huaban88">Github</i>
-        </a>
-        <div class="fold-nav">
-            <div class="link">
-                <i class="icon iconfont icon-banshou">工具</i>
-                <i class="flod_icon icon iconfont icon-close"></i>
-            </div>
-            <a href="" class="link">
-                <i class="icon iconfont icon-huaban88">测试</i>
-            </a>
-            <div class="link">
-                // 空白占位符...
-            </div>
-        </div>
-    </div>
 
-    <div class="nav-list">
-        <p class="title">潜影盒</p>
-        <div class="fold-nav">
-            <div class="link">
-                <i class="left_nav_link_icon icon iconfont icon-iconfontlink">友情链接</i>
-                <i class="left_nav_link_icon flod_icon icon iconfont icon-close"></i>
-            </div>
-            <div class="link">
+<!-- 	<div class="nav-list">
+		<p class="title">导航</p>
+		<a class="link" href="">
+			<i class="icon icons i-yemian-copy-copy">首页</i>
+		</a>
+		<a title="提问之前先看看?" class="link" target="view_window" href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md">
+			<i class="icon icons i-tiwen">提问的智慧</i>
+		</a>
+		<a class="link" href="">
+			<i class="icon icons i-huaban88">Github</i>
+		</a>
+		<div class="fold-nav">
+			<div class="link switch">
+				<i class="icon icons i-banshou">工具</i>
+				<i class="flod-icon icon icons i-close"></i>
+			</div>
+			<a href="" class="link">
+				<i class="icon icons i-huaban88">测试</i>
+			</a>
+			<div class="link">
+				// 空白占位符...
+			</div>
+		</div>
+	</div>
 
-            </div>
-        </div>
-    </div>
+	<div class="nav-list">
+		<p class="title">潜影盒</p>
+		<div class="fold-nav">
+			<div class="link switch">
+				<i class="icon icons i-iconslink">友情链接</i>
+				<i class="flod-icon icon icons i-close"></i>
+			</div>
+			<div class="link">
+
+			</div>
+		</div>
+	</div> -->
 </div>
+<%- js('js/left-aside.js') %>
