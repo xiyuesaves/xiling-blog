@@ -1,6 +1,4 @@
 <!-- 首页 -->
-<!-- 首页样式 -->
-<%- css('css/index.css') %>
 <!-- 标题块 -->
 <div class="title-block">
     <p class="big-title"><%- config.title %></p>
@@ -53,9 +51,9 @@
                 <%- preface %>
             </span>
             <div class="meta" data-id="<%- post._id %>">
-                <i class="icons i-date"><p class="of-ellipsis"><%- releaseDate %></p></i>
+                <i class="icons i-date"><p class="of-ellipsis" title="<%- new Date(post.date) %>"><%- releaseDate %></p></i>
                 <i class="icons i-read"><p class="of-ellipsis" title="大概阅读时间 <%- readTime %> 分钟"><%- readTime %> 分钟</p></i>
-                <i class="icons i-archives"><p class="of-ellipsis"><%- categories.name %></p></i>
+                <i class="icons i-archives"><p class="of-ellipsis" title="看看这个分类下的其他文章？" onclick="gotoArchives(event,'<%- categories.permalink %>')"><%- categories.name %></p></i>
             </div>
         </div>
         <div class="fliter-img" style="background-image: url(<%- post.picture %>);"></div>
@@ -71,3 +69,4 @@
     })
 %>
 </div>
+<%- js('js/index.js') %>

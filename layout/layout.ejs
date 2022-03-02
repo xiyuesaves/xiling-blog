@@ -3,8 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<title><%- config.title %></title>
+	<!-- 所有样式全在此处一次性加载 -->
 	<!-- 主要样式 -->
 	<%- css('css/main.css') %>
+	<!-- 首页样式 -->
+	<%- css('css/index.css') %>
+	<!-- 右侧栏 -->
+	<%- css('css/right-aside.css') %>
+	<!-- 左侧栏 -->
+	<%- css('css/left-aside.css') %>
 	<!-- 图标 -->
 	<!-- <%- css('css/iconfont.css') %> -->
 	<%- css('//at.alicdn.com/t/font_3205213_le376armc6m.css') %>
@@ -37,7 +44,7 @@
 	</div>
 </body>
 <!-- 脚本 -->
-
-<%- js('js/main.js')%>
 <%- js('js/SmoothScroll.min.js')%>
+<%- js('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js')%>
+<%- js('js/main.js')%>
 </html>
