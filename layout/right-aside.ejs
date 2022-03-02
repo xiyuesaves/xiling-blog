@@ -1,27 +1,5 @@
 <!-- 右侧栏 -->
 <%- css('css/right-aside.css') %>
-<%
-	let tagArr = [];
-	// 标签云数据源
-	site.posts.forEach(data => {
-		data.tags.forEach(tag => {
-			let index = tagArr.findIndex((el, index, arr) => {
-				if (el[0] === tag.name) {
-					return true;
-				}
-				return false;
-			})
-			if (index === -1) {
-				tagArr.push([tag.name,1,1,tag.permalink]);
-			} else {
-				++tagArr[index][1];
-				++tagArr[index][2];
-			}
-		})
-	})
-	// 排序
-	tagArr.sort((d1,d2) => d2[1] - d1[1]);
-%>
 <div class="right-aside">
 	<!-- 切换栏 -->
     <div class="switch-table">
@@ -40,16 +18,71 @@
     	<div class="switch-list">
     		<div class="list-row">
     			<div class="row-title">
-    				随机文章
+    				随便看看
     			</div>
     			<div class="row-title">
-    				热门文章
+    				最近更新
     			</div>
     			<div class="row-title">
-    				最新回复
+    				分类
     			</div>
     		</div>
-    		<div class="list-row">
+
+<%
+	let maxLength = 6,
+		postList = site.posts.data,
+		latestUpdate = [],
+		ranPost = [];
+
+		maxLength = postList.length > maxLength ? maxLength : postList.length;
+
+		postList.forEach(post => {
+			latestUpdate.push(post);
+		})
+
+		// 按照更新时间排序
+		latestUpdate.sort((posa,posb) => {
+			return new Date(posb.updated) - new Date(posa.updated);
+		})
+		latestUpdate = latestUpdate.splice(0,maxLength);
+
+		postList.forEach(post => {
+			ranPost.push(post);
+		})
+		// 随机打乱
+		ranPost.sort(() => 0.5 - Math.random());
+
+
+%>
+    	<div class="list-row">
+			<div class="row-box" data-id="">
+			    <a href="" class="of-ellipsis-2"></a>
+			    <i class="icons i-tag of-ellipsis msg-tag" >---</i>
+			    <div class="bgi">
+			        <img src="">
+			    </div>
+			</div>
+			<div class="row-box">
+			    <a href="" class="of-ellipsis-2">加载中...</a>
+			    <i class="icons i-tag of-ellipsis msg-tag" >---</i>
+			    <div class="bgi">
+			        <img src="">
+			    </div>
+			</div>
+			<div class="row-box">
+			    <div class="user-avatar">
+			        <img src="/img/un_avatar.png">
+			    </div>
+			    <div class="on-msg">
+			        <a href="" title="加载中..." class="of-ellipsis">加载中...</a>
+			        <p class="msg-content of-ellipsis-2">加载中...</p>
+			    </div>
+			</div>
+		</div>
+
+
+
+<!--     		<div class="list-row">
 			    <div class="row-box">
 			        <a href="" class="of-ellipsis-2">随机推荐-标题</a>
 			        <i class="icons i-see of-ellipsis">1256</i>
@@ -73,146 +106,29 @@
 			            <p class="msg-content of-ellipsis-2">留言内容</p>
 			        </div>
 			    </div>
-			</div>
-			<div class="list-row">
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">随机推荐-标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">最热-标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <div class="user-avatar">
-			            <img src="/img/un_avatar.png">
-			        </div>
-			        <div class="on-msg">
-			            <a href="" title="跳转到留言文章" title="用户名" class="of-ellipsis">用户名</a>
-			            <p class="msg-content of-ellipsis-2">留言内容</p>
-			        </div>
-			    </div>
-			</div>
-			<div class="list-row">
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">随机推荐-标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">最热-标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <div class="user-avatar">
-			            <img src="/img/un_avatar.png">
-			        </div>
-			        <div class="on-msg">
-			            <a href="" title="跳转到留言文章" title="用户名" class="of-ellipsis">用户名</a>
-			            <p class="msg-content of-ellipsis-2">留言内容</p>
-			        </div>
-			    </div>
-			</div>
-			<div class="list-row">
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">随机推荐-标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">最热-标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <div class="user-avatar">
-			            <img src="/img/un_avatar.png">
-			        </div>
-			        <div class="on-msg">
-			            <a href="" title="跳转到留言文章" title="用户名" class="of-ellipsis">用户名</a>
-			            <p class="msg-content of-ellipsis-2">留言内容</p>
-			        </div>
-			    </div>
-			</div>
-			<div class="list-row">
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">随机推荐-标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">最热-标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <div class="user-avatar">
-			            <img src="/img/un_avatar.png">
-			        </div>
-			        <div class="on-msg">
-			            <a href="" title="跳转到留言文章" title="用户名" class="of-ellipsis">用户名</a>
-			            <p class="msg-content of-ellipsis-2">留言内容</p>
-			        </div>
-			    </div>
-			</div>
-			<div class="list-row">
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">随机推荐-标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <a href="" class="of-ellipsis-2">最热-标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a>
-			        <i class="icons i-see of-ellipsis">1256</i>
-			        <div class="bgi">
-			            <img src="/img/bgi_2.jpg">
-			        </div>
-			    </div>
-			    <div class="row-box">
-			        <div class="user-avatar">
-			            <img src="/img/un_avatar.png">
-			        </div>
-			        <div class="on-msg">
-			            <a href="" title="跳转到留言文章" title="用户名" class="of-ellipsis">用户名</a>
-			            <p class="msg-content of-ellipsis-2">留言内容</p>
-			        </div>
-			    </div>
-			</div>
+			</div> -->
+
 			
     	</div>
     </div>
     <!-- 标签云 -->
     <div class="tag-cloud">
-    	<p class="title" title="找找有没有你感兴趣的?">标签云</p>
+    	<p class="title" title="找找有没有你感兴趣的?">标签</p>
     	<div id="cloud-box">
 <%
-	tagArr.forEach(el => {
+	// 标签
+	let tags = [],
+		tagArr = [];
+	site.tags.forEach(el => {
+		tags.push(el);
+	})
+	tags.sort((d1,d2) => d2.length - d1.length);
+	tags.forEach(el => {
 %>
-			<a href="<%- el[3] %>">
-    			<p><%- el[0] %></p>
+			<a href="<%- el.permalink %>">
+    			<p><%- el.name %></p>
     			<div class="fixed-tag">
-    				这有<%- el[2] %>篇文章
+    				这有<%- el.length %>篇文章
     			</div>
     		</a>
 <%
