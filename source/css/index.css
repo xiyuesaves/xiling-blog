@@ -39,9 +39,10 @@
     width: 100%;
     height: 100%;
     transition: all 500ms;
-    transform: translateY(75px);
+    transform: translateY(65px);
     color: #ffffff;
     padding: 20px;
+    padding-top: 30px;
     position: relative;
     z-index: 100;
 }
@@ -62,8 +63,30 @@
 
 .center-block .post-list .post .info .title {
     text-align: center;
+    color: #ffffff;
     font-size: 24px;
     margin: 0 160px;
+}
+
+.center-block .post-list .post .info .title a {
+    color: inherit;
+    position: relative;
+}
+
+.center-block .post-list .post .info .title a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 0%;
+    border-bottom: solid 2px #ffffff;
+    transition: 300ms;
+}
+
+.center-block .post-list .post .info .title a:hover:before {
+    left: 0%;
+    width: 100%;
 }
 
 .center-block .post-list .post .info .introduction {
@@ -109,10 +132,12 @@
     justify-content: center;
     align-items: center;
 }
-.center-block .post-list .post .info .meta .icons::before{
+
+.center-block .post-list .post .info .meta .icons::before {
     font-size: 16px;
     margin-right: 4px;
 }
+
 .center-block .post-list .post .info .meta p {
     font-size: 12px;
     font-style: normal;
