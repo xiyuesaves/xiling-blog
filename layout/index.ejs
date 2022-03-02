@@ -56,14 +56,14 @@
                 <i class="icons i-archives"><p class="of-ellipsis" title="看看这个分类下的其他文章？" onclick="gotoArchives(event,'<%- categories.permalink %>')"><%- categories.name %></p></i>
             </div>
         </div>
-        <div class="fliter-img" style="background-image: url(<%- post.picture %>);"></div>
         <div class="rotating-block">
             <div class="reverse-rotation-block">
                 <div class="image-block">
-                    <div class="img" style="background-image: url(<%- post.picture %>);"></div>
+                    <div class="img" style="background-image: url(<%- post.picture.pic %>);"></div>
                 </div>
             </div>
         </div>
+        <div class="fliter-img" style="background-image: url(<%- post.picture.pic %>);"></div>
     </a>
 <%
     })
