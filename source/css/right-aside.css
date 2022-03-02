@@ -1,0 +1,270 @@
+/* 右边栏 */
+#right-aside {
+    transition: 300ms;
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.right-aside {
+    width: 240px;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 100%;
+    min-height: calc(100vh - 50px);
+    transition: 300ms;
+}
+
+.right-aside:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.right-aside .switch-table {
+    width: 100%;
+    /*min-height: 500px;*/
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+
+.right-aside .switch-table .btn-item {
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px #ccd0d4;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-aside .switch-table .btn-item .btn {
+    width: 33.333%;
+    color: #595d65;
+    font-size: 18px;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.right-aside .switch-table .btn-item .active-bar {
+    position: absolute;
+    pointer-events: none;
+    transition: 300ms;
+    width: 33.333%;
+    height: 1px;
+    left: 0px;
+    top: 100%;
+    transform: translateX(0%) translateY(-50%);
+    background-color: #3e64ff;
+    box-shadow: 0px 1px 2px #3e64ff;
+}
+
+.right-aside .switch-table .switch-list {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+}
+
+.right-aside .switch-table .switch-list .list-row {
+    width: 300%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    transition: 300ms;
+    box-sizing: border-box;
+    transform: translateX(-0%);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-title {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #555555;
+    font-weight: bold;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box {
+    transition: 300ms;
+    overflow: hidden;
+    height: 80px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box a {
+    font-size: 14px;
+    color: #3D3D3D;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: right;
+    font-size: 12px;
+    height: 16px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .icons::before {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .bgi {
+    transition: 300ms;
+    position: absolute;
+    z-index: -1;
+    height: 130%;
+    width: 130%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-40%);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .bgi img {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    filter: blur(4px);
+    opacity: 0.5;
+    transform: translateY(-50%);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box:last-child {
+    display: flex;
+    align-items: center;
+    flex-direction: unset;
+    justify-content: space-between;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .user-avatar {
+    transition: 300ms;
+    height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    border-radius: 100px;
+    border: solid 4px #ffffff;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 1px rgb(0 0 0 / 15%);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .user-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .on-msg {
+    width: 170px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .on-msg a {
+    max-width: 100%;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .on-msg .msg-content {
+    width: 100%;
+    height: 28px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    line-height: 14px;
+    font-size: 12px;
+    max-height: 28px;
+    display: block;
+    min-height: 28px;
+    color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .user-avatar:hover {
+    transform: rotateZ(25deg);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box:hover .bgi {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box:hover {
+    box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+}
+
+.right-aside .tag-cloud {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.right-aside .tag-cloud #cloud-box {
+    width: 220px;
+    height: 220px;
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.right-aside .tag-cloud #cloud-box a {
+    display: block;
+    padding: 0 8px;
+    font-size: 12px;
+    background-color: #22a2c3;
+    line-height: 20px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    color: #ffffff;
+    position: relative;
+}
+
+.right-aside .tag-cloud #cloud-box a .fixed-tag {
+    position: absolute;
+    border-radius: 4px;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(30%);
+    opacity: 0;
+    transition: 300ms;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 18px;
+    padding: 2px 8px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.right-aside .tag-cloud #cloud-box a .fixed-tag::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: solid 3px transparent;
+    border-left-color: rgba(0, 0, 0, 0.8);
+    border-bottom-color: rgba(0, 0, 0, 0.8);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotateZ(-45deg);
+}
+
+.right-aside .tag-cloud #cloud-box a:hover .fixed-tag {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0%);
+}
