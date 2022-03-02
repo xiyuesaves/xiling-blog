@@ -1,8 +1,6 @@
-let activeNum = 0
-init_switch_show()
-
 // 初始化切换显示
-function init_switch_show() {
+(() => {
+    let activeNum = 0
     let activeBar = document.querySelector(".active-bar");
     activeBar.style.cssText = "transform: translateX(0%) translateY(-50%);transition 300ms";
     let listRow = document.querySelectorAll(".list-row");
@@ -32,4 +30,4 @@ function init_switch_show() {
             }
         }, false)
     })
-}
+})()
