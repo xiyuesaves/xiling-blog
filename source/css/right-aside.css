@@ -98,7 +98,7 @@
     position: relative;
 }
 
-.right-aside .switch-table .switch-list .list-row .row-box a {
+.right-aside .switch-table .switch-list .list-row .row-box>a {
     font-size: 14px;
     color: #3D3D3D;
 }
@@ -110,6 +110,15 @@
     text-align: right;
     font-size: 12px;
     height: 16px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .icons span{
+    max-width: 200px;
+    display: block;
+}
+
+.right-aside .switch-table .switch-list .list-row .row-box .icons span *{
     color: rgba(0, 0, 0, 0.5);
 }
 
@@ -130,8 +139,12 @@
     transform: translateY(-50%) translateX(-40%);
 }
 
-.right-aside .switch-table .switch-list .list-row .row-box .bgi img {
+.right-aside .switch-table .switch-list .list-row .row-box .bgi .bg-img {
     position: absolute;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     top: 50%;
     filter: blur(4px);
