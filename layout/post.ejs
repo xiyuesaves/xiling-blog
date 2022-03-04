@@ -11,6 +11,7 @@
     <span class="sm-title">
 		<i class="icons i-date"><p class="of-ellipsis" title="<%- new Date(page.date) %>"><%- releaseDate %></p></i>
     	<i class="icons i-read"><p class="of-ellipsis" title="<%- contentStr.length %>字"><%- readTime %> 分钟</p></i>
+    	<i class="icons i-see" style="display: none;"><span title="总阅读量"></span></i>
 	<%
 		if (categories.permalink) {
 	%>
@@ -37,7 +38,20 @@
     </span>
 </div>
 <div class="post-nav">
-	
+	<a href="/">
+		<i class="icons i-home"></i>
+		主页
+	</a>
+<%
+	page.categories.forEach(categories => {
+%>
+	<span>/</span>
+	<a href="<%- categories.permalink %>"><%- categories.name %></a>
+<%
+	})
+%>
+	<span>/</span>
+	<p>当前文章</p>
 </div>
 <div class="post-content">
 	<div class="top-pic" style="background-image: url(<%- page.picture.pic %>);"></div>
@@ -52,5 +66,3 @@
 		<%- page.content %>
 	</div>
 </div>
-
-
