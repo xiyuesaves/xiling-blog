@@ -1,34 +1,28 @@
 <!-- 首页 -->
+
+<%
+    // 判断标题如何显示
+    console.log("tags",page)
+    let title = config.title,
+        subtitle = config.subtitle;
+    if (page.tag) {
+        title = `${page.tag} 标签下的文章`;
+        subtitle = `共有 ${page.posts.length} 篇`
+    } else if (page.category) {
+        title = `${page.category} 分类下的文章`;
+        subtitle = `共有 ${page.posts.length} 篇`
+    }
+%>
+
 <!-- 标题块 -->
 <div class="title-block">
-    <p class="big-title"><%- config.title %></p>
-    <p class="sm-title"><%- config.subtitle %></p>
+    <p class="big-title"><%- title %></p>
+    <p class="sm-title"><%- subtitle %></p>
 </div>
 <!-- 文章列表 -->
 <div class="post-list">
-<!--     <a class="post" href="">
-        <div class="info">
-            <p class="title">测试模组</p>
-            <p class="introduction of-ellipsis_2">
-                内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息内部消息
-            </p>
-            <div class="meta">
-                <i class="icons i-date"><p class="of_ellipsis">2020年8月12日14:06:22</p></i>
-                <i class="icons i-msg"><p class="of_ellipsis">----</p></i>
-                <i class="icons i-see"><p class="of_ellipsis">----</p></i>
-            </div>
-        </div>
-        <div class="fliter-img" style="background-image: url(/img/bgi_2.jpg);"></div>
-        <div class="rotating-block">
-            <div class="reverse-rotation-block">
-                <div class="image-block">
-                    <img src="/img/bgi_2.jpg">
-                </div>
-            </div>
-        </div>
-    </a> -->
-
 <%
+
     page.posts.forEach(post => {
         let excerptStr = post.excerpt.replace(/<\/?[^>]+>/g,""),
             contentStr = post.content.replace(/<\/?[^>]+>/g,""),
@@ -42,7 +36,7 @@
         } else {
             preface = excerptStr;
         }
-        console.log(post.categories)
+        // console.log(post.categories)
 %>
     <a class="post" href="<%- post.permalink %>">
         <div class="info">
