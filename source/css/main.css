@@ -2,19 +2,23 @@ html {
     font-family: "Source Sans Pro", "Hiragino Sans GB", "Microsoft Yahei", SimSun, Helvetica, Arial, Sans-serif;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 ::selection {
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(100, 100, 100, 1);
 }
 
 ::-moz-selection {
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(100, 100, 100, 1);
 }
 
 ::-webkit-selection {
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(100, 100, 100, 1);
 }
 
 * {
@@ -158,6 +162,7 @@ body {
     padding: 20px;
     color: #ffffff;
     width: 100%;
+    cursor: default;
     text-align: center;
 }
 

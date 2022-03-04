@@ -2,7 +2,7 @@
 const pjax = new Pjax({
 	selectors: [".center-block", "title"],
 	cacheBust: false,
-	timeout: 1500
+	timeout: 1000
 })
 // 跳转到分类
 function gotoArchives(event,url) {
